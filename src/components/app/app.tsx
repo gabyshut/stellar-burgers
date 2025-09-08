@@ -15,17 +15,17 @@ import styles from './app.module.css';
 import { AppHeader, IngredientDetails, Modal, OrderInfo } from '@components';
 import { Route, Routes } from 'react-router-dom';
 import { ProtectedRoute } from '../protected-route/ProtectedRoute';
-import { Preloader } from '@ui';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../services/hooks/hooks';
 import { fetchIngredients } from '../../services/slices/ingredientsSlice';
+import { fetchUser } from '../../services/slices/userSlice';
 
 const App = () => {
   const dispatch = useAppDispatch();
-  const { isLoading } = useAppSelector((state) => state.ingredientsSlice);
 
   useEffect(() => {
     dispatch(fetchIngredients());
+    dispatch(fetchUser());
   }, [dispatch]);
 
   return (
@@ -40,7 +40,7 @@ const App = () => {
           <Route
             path='/login'
             element={
-              <ProtectedRoute>
+              <ProtectedRoute onlyUnAuth>
                 <Login />
               </ProtectedRoute>
             }
@@ -48,7 +48,7 @@ const App = () => {
           <Route
             path='/register'
             element={
-              <ProtectedRoute>
+              <ProtectedRoute onlyUnAuth>
                 <Register />
               </ProtectedRoute>
             }
@@ -56,7 +56,7 @@ const App = () => {
           <Route
             path='/forgot-password'
             element={
-              <ProtectedRoute>
+              <ProtectedRoute onlyUnAuth>
                 <ForgotPassword />
               </ProtectedRoute>
             }
@@ -64,7 +64,7 @@ const App = () => {
           <Route
             path='/reset-password'
             element={
-              <ProtectedRoute>
+              <ProtectedRoute onlyUnAuth>
                 <ResetPassword />
               </ProtectedRoute>
             }

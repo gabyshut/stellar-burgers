@@ -7,8 +7,6 @@ import { useAppSelector } from '../../services/hooks/hooks';
 
 export const BurgerIngredients: FC = () => {
   const { items } = useAppSelector((state) => state.ingredientsSlice);
-  console.log('INGREDIENTS:', items);
-  
 
   const buns = items.filter((i) => i.type === 'bun');
   const mains = items.filter((i) => i.type === 'main');
