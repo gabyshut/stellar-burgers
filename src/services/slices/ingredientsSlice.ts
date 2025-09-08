@@ -3,10 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchIngredients = createAsyncThunk(
   'ingredients/fetch',
-  async () => {
-    const res = await getIngredientsApi();
-    return res;
-  }
+  getIngredientsApi
 );
 
 interface IngredientsState {
@@ -26,18 +23,18 @@ const ingredientsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchIngredients.pending, (state) => {
-      state.isLoading = true;
-    });
-    builder.addCase(fetchIngredients.fulfilled, (state, action) => {
-      state.isLoading = false;
-      state.items = action.payload;
-    });
-
-    builder.addCase(fetchIngredients.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.error.message ?? 'Ошибка';
-    });
+    builder
+      .addCase(fetchIngredients.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchIngredients.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.items = action.payload;
+      })
+      .addCase(fetchIngredients.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message ?? 'Ошибка';
+      });
   }
 });
 

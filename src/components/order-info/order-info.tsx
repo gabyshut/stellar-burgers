@@ -2,19 +2,19 @@ import { FC, useEffect, useMemo } from 'react';
 import { Preloader } from '../ui/preloader';
 import { OrderInfoUI } from '../ui/order-info';
 import { TIngredient } from '@utils-types';
-import { useAppDispatch, useAppSelector } from '../../services/hooks/hooks';
 import { useParams } from 'react-router-dom';
 import {
   clearOrder,
   fetchOrderByNumber
 } from '../../services/slices/orderSlice';
+import { useDispatch, useSelector } from '../../services/store';
 
 export const OrderInfo: FC = () => {
   const { number } = useParams<{ number: string }>();
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch();
 
-  const orderData = useAppSelector((state) => state.orderSlice.orderData);
-  const ingredients = useAppSelector((state) => state.ingredientsSlice.items);
+  const orderData = useSelector((state) => state.orderSlice.orderData);
+  const ingredients = useSelector((state) => state.ingredientsSlice.items);
 
   useEffect(() => {
     if (number) {

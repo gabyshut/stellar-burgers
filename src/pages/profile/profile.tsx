@@ -1,12 +1,12 @@
 import { ProfileUI } from '@ui-pages';
 import { FC, SyntheticEvent, useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../services/hooks/hooks';
 import { selectUser } from '../../services/selectors/user';
 import { updateUser } from '../../services/slices/userSlice';
+import { useDispatch, useSelector } from '../../services/store';
 
 export const Profile: FC = () => {
-  const user = useAppSelector(selectUser)!;
-  const dispatch = useAppDispatch();
+  const user = useSelector(selectUser)!;
+  const dispatch = useDispatch();
 
   const [formValue, setFormValue] = useState({
     name: user.name,

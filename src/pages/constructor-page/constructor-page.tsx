@@ -1,11 +1,11 @@
-import { useAppSelector } from '../../services/hooks/hooks';
 import styles from './constructor-page.module.css';
 import { BurgerIngredients, BurgerConstructor } from '../../components';
 import { Preloader } from '../../components/ui';
 import { FC } from 'react';
+import { useSelector } from '../../services/store';
 
 export const ConstructorPage: FC = () => {
-  const isIngredientsLoading = useAppSelector(
+  const isIngredientsLoading = useSelector(
     (state) => state.ingredientsSlice.isLoading
   );
 

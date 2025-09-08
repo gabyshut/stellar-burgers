@@ -1,15 +1,15 @@
 import { FC, memo } from 'react';
-import { useAppDispatch } from '../../services/hooks/hooks';
 import {
   moveIngredient,
   removeIngredient
 } from '../../services/slices/constructorSlice';
 import { BurgerConstructorElementUI } from '@ui';
 import { BurgerConstructorElementProps } from './type';
+import { useDispatch } from '../../services/store';
 
 export const BurgerConstructorElement: FC<BurgerConstructorElementProps> = memo(
   ({ ingredient, index, totalItems }) => {
-    const dispatch = useAppDispatch();
+    const dispatch = useDispatch();
 
     const handleMoveUp = () => {
       if (index <= 0) return;

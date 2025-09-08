@@ -17,11 +17,7 @@ export const AppHeaderUI: FC<TAppHeaderUIProps> = ({ userName }) => (
           <BurgerIcon type='primary' />
           <p className='text text_type_main-default ml-2 mr-10'>Конструктор</p>
         </NavLink>
-
-        <NavLink
-          to={userName ? '/profile/orders' : '/login'}
-          className={styles.link}
-        >
+        <NavLink to='/feed' className={styles.link}>
           <ListIcon type='primary' />
           <p className='text text_type_main-default ml-2'>Лента заказов</p>
         </NavLink>

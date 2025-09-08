@@ -1,24 +1,22 @@
 import { FC, useMemo } from 'react';
-import { useAppSelector, useAppDispatch } from '../../services/hooks/hooks';
 import { TConstructorIngredient } from '@utils-types';
 import { BurgerConstructorUI } from '@ui';
 import { selectUser } from '../../services/selectors/user';
 import { useNavigate } from 'react-router-dom';
 import { clearOrder, makeOrder } from '../../services/slices/orderCreateSlice';
+import { useDispatch, useSelector } from '../../services/store';
 
 export const BurgerConstructor: FC = () => {
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useAppSelector(selectUser);
+  const user = useSelector(selectUser);
 
-  const { bun, ingredients } = useAppSelector(
-    (state) => state.constructorSlice
-  );
+  const { bun, ingredients } = useSelector((state) => state.constructorSlice);
 
-  const orderRequest = useAppSelector(
+  const orderRequest = useSelector(
     (state) => state.orderCreateSlice.orderRequest
   );
-  const orderModalData = useAppSelector(
+  const orderModalData = useSelector(
     (state) => state.orderCreateSlice.orderData
   );
 
