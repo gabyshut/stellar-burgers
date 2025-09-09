@@ -90,61 +90,61 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+
+        {/* страницы деталей */}
+        <Route path='/ingredients/:id' element={<IngredientDetails />} />
+        <Route path='/feed/:number' element={<OrderInfo />} />
+        <Route
+          path='/profile/orders/:number'
+          element={
+            <ProtectedRoute>
+              <OrderInfo />
+            </ProtectedRoute>
+          }
+        />
+
         <Route path='*' element={<NotFound404 />} />
       </Routes>
-      <Routes>
-        {/* Ингредиенты */}
-        <Route
-          path='/ingredients/:id'
-          element={
-            background ? (
+
+      {background && (
+        <Routes>
+          <Route
+            path='/ingredients/:id'
+            element={
               <Modal
                 title='Детали ингредиента'
                 onClose={() => window.history.back()}
               >
                 <IngredientDetails />
               </Modal>
-            ) : (
-              <IngredientDetails />
-            )
-          }
-        />
-
-        {/* Заказы */}
-        <Route
-          path='/feed/:number'
-          element={
-            background ? (
+            }
+          />
+          <Route
+            path='/feed/:number'
+            element={
               <Modal
                 title='Информация о заказе'
                 onClose={() => window.history.back()}
               >
                 <OrderInfo />
               </Modal>
-            ) : (
-              <OrderInfo />
-            )
-          }
-        />
-
-        <Route
-          path='/profile/orders/:number'
-          element={
-            <ProtectedRoute>
-              {background ? (
+            }
+          />
+          <Route
+            path='/profile/orders/:number'
+            element={
+              <ProtectedRoute>
                 <Modal
                   title='Информация о заказе'
                   onClose={() => window.history.back()}
                 >
                   <OrderInfo />
                 </Modal>
-              ) : (
-                <OrderInfo />
-              )}
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      )}
     </div>
   );
 };
