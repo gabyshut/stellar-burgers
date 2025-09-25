@@ -1,15 +1,7 @@
-import feedReducer, { fetchFeed } from './feedSlice';
+import feedReducer, { fetchFeed, initialState } from './feedSlice';
 import { TOrder } from '@utils-types';
 
 describe('feedSlice reducer', () => {
-  const initialState = {
-    orders: [] as TOrder[],
-    total: 0,
-    totalToday: 0,
-    isLoading: false,
-    error: null as string | null
-  };
-
   it('должен ставить isLoading = true и очищать ошибку при pending', () => {
     const action = fetchFeed.pending('', undefined);
     const state = feedReducer(initialState, action);
