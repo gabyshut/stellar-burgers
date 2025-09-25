@@ -16,10 +16,10 @@ import { AppHeader, IngredientDetails, Modal, OrderInfo } from '@components';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { ProtectedRoute } from '../protected-route/ProtectedRoute';
 import { useEffect } from 'react';
-import { fetchIngredients } from '../../services/slices/ingredientsSlice';
-import { fetchUser } from '../../services/slices/userSlice';
+import { fetchIngredients } from '../../services/slices/ingredients/ingredientsSlice';
 import { useDispatch } from '../../services/store';
 import { LocationState } from '@utils-types';
+import { fetchUser } from '../../services/slices/user/userSlice';
 
 const App = () => {
   const dispatch = useDispatch();

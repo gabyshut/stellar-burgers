@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@api": ["utils/burger-api.ts"],
+      "@utils-types": ["utils/types.ts"]
+    },
+    "noEmit": true,
+    "types": ["cypress"]
+  },
+  "include": ["src/**/*", "node_modules/cypress", "../cypress/e2e/**/*"]
+}

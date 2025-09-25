@@ -3,7 +3,7 @@ import { FC, useEffect } from 'react';
 import {
   clearOrders,
   fetchUserOrders
-} from '../../services/slices/ordersSlice';
+} from '../../services/slices/orders/ordersSlice';
 import { useDispatch, useSelector } from '../../services/store';
 
 export const ProfileOrders: FC = () => {

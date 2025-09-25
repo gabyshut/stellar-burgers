@@ -1,6 +1,6 @@
+import { orderBurgerApi } from '@api';
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { TConstructorIngredient, TIngredient } from '@utils-types';
-import { orderBurgerApi } from '@api';
 
 interface ConstructorState {
   bun: TConstructorIngredient | null;
@@ -10,7 +10,7 @@ interface ConstructorState {
   error: string | null;
 }
 
-const initialState: ConstructorState = {
+export const initialState: ConstructorState = {
   bun: null,
   ingredients: [],
   orderRequest: false,
