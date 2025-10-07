@@ -7,7 +7,7 @@ import {
   updateUserApi
 } from '@api';
 import { TUser } from '@utils-types';
-import { setCookie } from '../../utils/cookie';
+import { setCookie } from '../../../utils/cookie';
 
 interface UserState {
   user: TUser | null;

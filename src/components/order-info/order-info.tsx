@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import {
   clearOrder,
   fetchOrderByNumber
-} from '../../services/slices/orderSlice';
+} from '../../services/slices/order/orderSlice';
 import { useDispatch, useSelector } from '../../services/store';
 
 export const OrderInfo: FC = () => {

@@ -1,6 +1,6 @@
+import { getFeedsApi } from '@api';
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import { getFeedsApi } from '../../utils/burger-api';
-import { TOrder } from '../../utils/types';
+import { TOrder } from '@utils-types';
 
 type FeedState = {
   orders: TOrder[];
@@ -10,7 +10,7 @@ type FeedState = {
   error: string | null;
 };
 
-const initialState: FeedState = {
+export const initialState: FeedState = {
   orders: [],
   total: 0,
   totalToday: 0,

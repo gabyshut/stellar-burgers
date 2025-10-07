@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { LoginUI } from '@ui-pages';
-import { loginUser } from '../../services/slices/userSlice';
 import { useDispatch } from '../../services/store';
 import { useForm } from '../../services/hooks/useForm';
+import { loginUser } from '../../services/slices/user/userSlice';
 
 export const Login: FC = () => {
   const dispatch = useDispatch();
